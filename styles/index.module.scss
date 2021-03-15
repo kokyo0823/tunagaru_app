@@ -1,0 +1,29 @@
+.groupList {
+  background-color: #f2f2f2;
+  margin-top: 44px;
+  .serch {
+    margin-left: 40px;
+    padding-top: 20px;
+    margin-top: 10px;
+    &_input {
+      border-radius: 30px;
+      background-color: #d5d5d5;
+      border: none;
+      display: block;
+      width: 85%;
+      height: 35px;
+      margin: 5px auto;
+      outline: none;
+      padding: 0 20px;
+    }
+    &_input::placeholder {
+      color: #716c6c;
+    }
+    &_input:-ms-input-placeholder {
+      color: #716c6c;
+    }
+  }
+  .list {
+    padding: 20px 0 100px 0;
+  }
+}

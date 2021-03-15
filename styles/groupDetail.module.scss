@@ -1,0 +1,106 @@
+.group {
+  margin-top: 53.5px;
+  padding-bottom: 100px;
+  background-color: #f2f2f2;
+  &_name {
+    text-align: center;
+    font-size: 40px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin: 13px;
+  }
+  .tags {
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+    margin-bottom: 12px;
+    padding: 6px 2px;
+    width: 87%;
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+    li {
+      background-color: #717070;
+      color: #fff;
+      margin: 0 6px 0 0;
+      padding: 1px 10px;
+      border-radius: 30px;
+      font-size: 18px;
+    }
+  }
+  .humans {
+    display: flex;
+    width: 87%;
+    margin: 0 auto;
+    list-style: none;
+    .human {
+      margin-right: 15px;
+      &_image {
+        border-radius: 50px;
+      }
+      &_position {
+        text-align: center;
+        line-height: 10px;
+        font-size: 12px;
+      }
+    }
+  }
+  .profile {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px 25px 30px 25px;
+    border-radius: 30px;
+    &_title {
+      margin-bottom: 15px;
+    }
+  }
+  .charm {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px 25px 30px 25px;
+    border-radius: 30px;
+    &_title {
+      margin-bottom: 15px;
+    }
+  }
+  .info {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px 25px 30px 25px;
+    border-radius: 30px;
+    &_title {
+      margin-bottom: 15px;
+    }
+    &_detail {
+      list-style: square;
+      &_item {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #707070;
+        padding: 4px;
+      }
+    }
+  }
+  .contact {
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #fff;
+    padding: 20px 25px 30px 25px;
+    border-radius: 30px;
+    &_title {
+      margin-bottom: 15px;
+    }
+    &_detail {
+      list-style: none;
+      &_item {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
