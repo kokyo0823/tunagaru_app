@@ -14,7 +14,7 @@ const Layout = ({ children, value }) => {
           content="個人と団体が「つながる」"
         />
         <title>つながる</title>
-        <link rel="icon" href="/favicon.ico" />
+        <script src="/__/firebase/init.js"></script>
       </Head>
       <header className={styles.header}>
         <div className={styles.header_content}>
