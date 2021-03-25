@@ -15,7 +15,7 @@ const Home = () => {
           <div className={styles.group_img}>
             <Image src={"/images/group.JPG"} width={500} height={278} className={styles.group_image} />
           </div>
-          <h2 className={styles.group_name}>JTC</h2>
+        <h2 className={styles.group_name}>JTC</h2>
           <ul className={styles.tags}>
             <li>テニス</li>
             <li>テニス</li>

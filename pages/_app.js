@@ -1,12 +1,18 @@
 import '../styles/globals.scss'
 import '../styles/reset.css'
-import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
-import "firebase/firestore";
+import React, { useEffect } from 'react'
+
+import { AuthProvider } from '../auth/AuthProvider'
+
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
+  )
 }
 
 export default MyApp
