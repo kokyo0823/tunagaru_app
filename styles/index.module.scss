@@ -1,10 +1,14 @@
 .groupList {
   background-color: #f2f2f2;
+  margin: 0 auto;
   margin-top: 44px;
+  max-width: 556px;
   .serch {
-    margin-left: 40px;
-    padding-top: 20px;
-    margin-top: 10px;
+    &_title{
+      margin-left: 40px;
+      padding-top: 20px;
+      margin-top: 10px;
+    }
     &_input {
       border-radius: 30px;
       background-color: #d5d5d5;
@@ -25,5 +29,6 @@
   }
   .list {
     padding: 20px 0 100px 0;
+    margin: 0 auto;
   }
 }

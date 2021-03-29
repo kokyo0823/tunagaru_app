@@ -14,8 +14,8 @@ class Home extends React.Component{
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className={styles.groupList}>
-          <div>
-            <h2 className={styles.serch} >Serch</h2>
+          <div className={styles.serch}>
+            <h2 className={styles.serch_title} >Serch</h2>
             <input placeholder="キーワード入力" type="text" className={styles.serch_input} />
           </div>
           <div className={styles.list}>

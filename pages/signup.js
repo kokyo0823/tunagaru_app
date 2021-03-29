@@ -1,62 +1,95 @@
-import React, { useEffect, useState } from 'react'
-import Router, { useRouter } from 'next/router'
-import Link from 'next/link'
-
-import { auth } from '../utils/firebase'
-import { AuthContext } from '../auth/AuthProvider'
-
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from 'firebase';
-
-const uiConfig = {
-  callbacks: {
-    signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-      // User successfully signed in.
-      // Return type determines whether we continue the redirect automatically
-      // or whether we leave that to developer to handle.
-      return true;
-    }
-  },
-  // Popup signin flow rather than redirect flow.
-  signInFlow: 'popup',
-  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-  signInSuccessUrl: '/',
-  // We will display Google and Facebook as auth providers.
-  signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.EmailAuthProvider.PROVIDER_ID,
-  ],
-};
+import React, { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
+import { TextInput, PrimaryButton } from "../components";
+import { signUp } from "../reducks/users/operations";
+import { push } from "connected-react-router";
 
 const SignUp = () => {
-  const router = useRouter()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      user && router.push('/')
-    })
-  }, [])
+  const [username, setUsername] = useState(""),
+        [email, setEmail] = useState(""),
+        [password, setPassword] = useState(""),
+        [confirmPassword, setConfirmPassword] = useState("");
 
-  const createUser = async (e) => {
-    e.preventDefault()
-    try {
-      await auth.createUserWithEmailAndPassword(email, password)
-      router.push('/login')
-    } catch (err) {
-      alert(err.message)
-    }
-  }
+  const inputUsername = useCallback(
+    (event) => {
+      setUsername(event.target.value)
+    },
+    [setUsername]
+  );
+  const inputEmail = useCallback(
+    (event) => {
+      setEmail(event.target.value)
+    },
+    [setEmail]
+    );
+  const inputAPassword = useCallback(
+    (event) => {
+      setPassword(event.target.value)
+    },
+    [setPassword]
+    );
+  const inputConfirmPassword = useCallback(
+    (event) => {
+      setConfirmPassword(event.target.value)
+    },
+    [setConfirmPassword]
+  );
 
   return (
-    <div className="wrapper">
-      <Link href="/login">
-        <a className="auth-link">Login</a>
-      </Link>
-      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+    <div className="c-section-container">
+      <h2 className="u-text__headline u-text-center">アカウント登録</h2>
+      <div className="madule-spacer--medium" />
+      <TextInput
+        fullWidth={true}
+        label={"ユーザー名"}
+        multiline={false}
+        required={true}
+        rows={1}
+        value={username}
+        type={"text"}
+        onChange={inputUsername}
+      />
+      <TextInput
+        fullWidth={true}
+        label={"メールアドレス"}
+        multiline={false}
+        required={true}
+        rows={1}
+        value={email}
+        type={"email"}
+        onChange={inputEmail}
+      />
+      <TextInput
+        fullWidth={true}
+        label={"パスワード"}
+        multiline={false}
+        required={true}
+        rows={1}
+        value={password}
+        type={"password"}
+        onChange={inputAPassword}
+      />
+      <TextInput
+        fullWidth={true}
+        label={"パスワード（再確認）"}
+        multiline={false}
+        required={true}
+        rows={1}
+        value={confirmPassword}
+        type={"text"}
+        onChange={inputConfirmPassword}
+      />
+      <div className="madule-spacer--medium" />
+      <div className="center">
+        <PrimaryButton
+          label={"アカウントを登録する"}
+          onClick={() => dispatch(signUp(username, email, password, confirmPassword))}
+        />
+        <p onClick={() => dispatch(push('/signin'))}>アカウントをお持ちの方はこちら</p>
+      </div>
     </div>
   )
 }
-
 export default SignUp
